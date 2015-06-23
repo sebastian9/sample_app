@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   	@user = User.new(user_params)
   	if @user.save
   	  flash[:success] = "Bienvenido al sitio modelo!"
+      log_in @user
       redirect_to @user
     else
       render 'new'
